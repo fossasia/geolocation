@@ -3,10 +3,10 @@ This website is the official website of Fossasia when it comes to geolocations. 
 the community looks after. This is basically a mini-project of FOSSASIA.
 
 ## Repositories currently using geolocation
-gci16.fossasia.org
+gci17.fossasia.org
 
 ## How to use geolocation for other projects
-The website currently supports only the gci16.fossasia.org repository where you can add the geo co-ordinates for mentors and students, the
+The website currently supports only the gci17.fossasia.org repository where you can add the geo co-ordinates for mentors and students, the
 members of FOSSASIA are free to supply any further integrations, check the code in the index.html and do the needy.
 
 ## Branches:
