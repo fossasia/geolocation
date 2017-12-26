@@ -23,7 +23,7 @@ function rit(position) {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     var target = L.latLng(position.coords.latitude, position.coords.longitude);
-    //map.setView(target, 14);
+    map.setView(target, 14);
     L.marker(target).addTo(map);
     output.style.display = "none";
     output.style.display = "inherit";
