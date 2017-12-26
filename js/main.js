@@ -14,8 +14,8 @@ function rit(position) {
     var mylocation = "lat: " + position.coords.latitude +"<br>";
     mylocation += "lng: " + position.coords.longitude+"<br><br>";
     output.innerHTML = mylocation;
-    my_preview = "http://www.openstreetmap.org/?mlat=" + position.coords.latitude + "&mlon=" +position.coords.longitude;
-    preview.innerHTML = "<a target='_blank' href='"+my_preview+"'>PREVIEW on OSM!</a>"+"<br><br>";
+    my_preview = "https://www.google.com/maps/?q=" + position.coords.latitude + "," +position.coords.longitude;
+    preview.innerHTML = "<a target='_blank' href='"+my_preview+"'>PREVIEW on GMaps!</a>"+"<br><br>";
     var element = document.getElementById('osm-map');
     element.style = 'height:300px;';
     var map = L.map(element);
@@ -23,7 +23,7 @@ function rit(position) {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     var target = L.latLng(position.coords.latitude, position.coords.longitude);
-    map.setView(target, 14);
+    //map.setView(target, 14);
     L.marker(target).addTo(map);
     output.style.display = "none";
     output.style.display = "inherit";
