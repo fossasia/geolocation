@@ -28,7 +28,7 @@ function rit(position) {
     output.style.display = "none";
     output.style.display = "inherit";
     out.style.display = "inherit";
-    document.getElementById("button").onclick = geolocation().reload().value="Get my geolocation again";
+    document.getElementById("button").onclick = function(){ window.location.reload(); }.value="Get my geolocation again";
 }
 
 function fileit(error) {
