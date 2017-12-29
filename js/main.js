@@ -3,6 +3,8 @@ var out = document.getElementById("out")
 function geolocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(rit,fileit);
+        document.getElementById("button").value="Get my geolocation again";
+        document.getElementById("button").onClick = "window.location.reload();"
     }
     else {
         output.innerHTML = "Geolocation is not supported by this browser";
@@ -28,8 +30,7 @@ function rit(position) {
     output.style.display = "none";
     output.style.display = "inherit";
     out.style.display = "inherit";
-    document.getElementById("button").value="Get my geolocation again";
-	document.getElementById("button").onClick = "window.location.reload();"
+
 }
 
 function fileit(error) {
