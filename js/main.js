@@ -4,7 +4,7 @@ function geolocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(rit,fileit);
         document.getElementById("button").value="Get my geolocation again";
-        document.getElementById("button").onClick = "window.location.reload();"
+        document.getElementById("button").onclick = "window.location.reload();";
     }
     else {
         output.innerHTML = "Geolocation is not supported by this browser";
