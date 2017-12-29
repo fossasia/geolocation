@@ -28,7 +28,8 @@ function rit(position) {
     output.style.display = "none";
     output.style.display = "inherit";
     out.style.display = "inherit";
-    document.getElementById("button").innerHTML = "<input id='button' type='button' value='Get my geolocation again' onClick='window.location.reload();'>"
+    document.getElementById("button").value="Get my geolocation again";
+	document.getElementById("button").onClick = "window.location.reload();"
 }
 
 function fileit(error) {
