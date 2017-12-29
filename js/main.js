@@ -15,7 +15,7 @@ function rit(position) {
     mylocation += "lng: " + position.coords.longitude+"<br><br>";
     output.innerHTML = mylocation;
     my_preview = "https://www.google.com/maps/?q=" + position.coords.latitude + "," +position.coords.longitude;
-    preview.innerHTML = "<a target='_blank' href='"+my_preview+"'>PREVIEW on GMaps!</a>"+"<br><br>";
+    preview.innerHTML = "<a target='_blank' href='"+my_preview+"'>Google Maps!</a>"+"<br><br>";
     var element = document.getElementById('osm-map');
     element.style = 'height:300px;';
     var map = L.map(element);
@@ -28,7 +28,7 @@ function rit(position) {
     output.style.display = "none";
     output.style.display = "inherit";
     out.style.display = "inherit";
-    document.getElementById("button").value="Get my geolocation again";
+    document.getElementById("button").value="Get my geolocation again".onclick = geolocation();
 }
 
 function fileit(error) {
