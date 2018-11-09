@@ -4,6 +4,7 @@ the community looks after. This is basically a mini-project of FOSSASIA.
 
 ## Repositories currently using geolocation
 gci17.fossasia.org
+gci18.fossasia.org
 
 ## How to use geolocation for other projects
 The website currently supports only the gci17.fossasia.org repository where you can add the geo co-ordinates for mentors and students, the
