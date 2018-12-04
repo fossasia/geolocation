@@ -2,7 +2,7 @@
 This website is the official website of Fossasia when it comes to geolocations. It finds geolocation for integration in multiple projects 
 the community looks after. This is basically a mini-project of [FOSSASIA](https://fossasia.org/).
 
-![zrzut ekranu 126](https://user-images.githubusercontent.com/29257057/49386524-09c94680-f720-11e8-86ee-c066c0a8652d.png)
+![website look](./images/website-look.png)
 
 ## Repositories currently using geolocation
 - [gci17.fossasia.org](https://github.com/fossasia/gci17.fossasia.org)
@@ -15,7 +15,6 @@ The website currently supports only the [gci18.fossasia.org](https://github.com/
 - visit [geolocation website](https://fossasia.github.io/geolocation/)
 - click "Get my geolocation" button
 - copy the coordinates and paste where wanted (you can add them directly to Mentors file \[If you are a mentor] in supported repository by visiting link in the bottom
-- it's everything, enjoy!
 
 ## Branches:
 We follow a simple branch framework, currently the gh-pages branch that should'nt amaze you right?
