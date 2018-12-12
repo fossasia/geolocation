@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/stylesheet.css" rel="stylesheet">
-    <link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
-    <title>Geolocator for FOSSASIA</title>
+  <title> Geolocator for FOSSASIA </title>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="css/stylesheet.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
-    <h2>Geo locator to faciliate easy integration of location data</h2>
+    <h1> Geolocator to facilitate easy integration of location data </h1>
     <div id="main-div" class="card">
-        <label class="label">Click the below button to get Geolocation</label><br><br><br>
-        <input id="button" type="button" value="Get my geolocation" onclick="geolocation()">
-        <br><br>
+        <h4> Click the below button to get Geolocation </h4> <br /> <br />
+        <input id="button" class="btn btn-primary btn-lg active" type="button" value="Get my geolocation 🌍" data-toggle="tooltip" title="Get geolocation 🌐" onclick="geolocation()"> <br /><br />
         <!-- The below div will hold the data -->
         <label id="output" class="label"></label>
         <label id="preview" class="label"></label>
         <div id="osm-map"></div>
         <div id="out">
-            <label>Copy and paste the lat and lng values to the:</label><br>
+            <label> Copy and paste the lat and lng values to the: </label> <br />
             <!-- Start ignoring LineLengthBear, HTMLLintBear -->
-            <a href="https://github.com/fossasia/gci18.fossasia.org/edit/master/_data/mentors.yml">Mentors file [If you are a mentor]</a><br>
+            	<a href="https://github.com/fossasia/gci18.fossasia.org/edit/master/_data/mentors.yml"> Mentors file [If you are a mentor] </a> <br />
             <!-- stop ignoring -->
         </div>
     </div>
-    <div class="card" id="info">Created with ♡ for FOSSASIA</div>
-    <script src="js/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <div class="card" id="info">
+    	Created with ♡ for <a href="https://fossasia.org/" data-toggle="tooltip" title="Visit FOSSASIA website"> FOSSASIA </a>
+    </div>
+    <script src="js/main.js"> </script>
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"> </script>
+    <script> $(function () {$('[data-toggle="tooltip"]').tooltip()}) </script>
 </body>
 </html>
