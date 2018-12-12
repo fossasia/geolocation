@@ -3,7 +3,7 @@ let out = document.getElementById("out")
 const geolocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(rit, fileit);
-        document.getElementById("button").value = "Get my geolocation again";
+        document.getElementById("button").value = "Get my geolocation again 🔄";
         document.getElementById("button").onclick = "window.location.reload();"; // reloads and executes the geolocation();
     }
     else {
@@ -13,8 +13,8 @@ const geolocation = () => {
 }
 
 const rit = (position) => {
-    let mylocation = `lat:${position.coords.latitude}<br>`;
-    mylocation += `lng:${position.coords.longitude}<br><br>`;
+    let mylocation = `lat: ${position.coords.latitude}<br>`;
+    mylocation += `lng: ${position.coords.longitude}<br><br>`;
     output.innerHTML = mylocation;
     my_preview = `https://www.google.com/maps/?q=${position.coords.latitude},${position.coords.longitude}`;
     preview.innerHTML = `<a target='_blank' href='${my_preview}>Google Maps!</a><br><br>`;
