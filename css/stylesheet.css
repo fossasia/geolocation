@@ -1,9 +1,9 @@
 body {
-    background: #eee;
+    background: rgb(243, 238, 238);
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-h2 {
+#title {
     color: #7c795d;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 32px;
@@ -56,3 +56,17 @@ h2 {
 #out * {
     margin-top: 10px;
 }
+
+#myButton1 {
+    background-color: rgb(0, 5, 0); /* Green */
+    border: none;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+  } 

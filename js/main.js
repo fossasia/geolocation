@@ -1,5 +1,7 @@
 let output = document.getElementById("output");
 let out = document.getElementById("out")
+let flag=0
+
 const geolocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(rit, fileit);
@@ -47,4 +49,21 @@ const fileit = (error) => {
             output.innerHTML = "Unknown Error please try again";
             break;
     }
+}
+
+const changeBodyBg = () => {
+    if(!flag)
+    {document.body.style.background = 'black';
+    document.getElementById("title").style.color = 'white';
+    document.getElementById("myButton1").value="Light";
+    document.getElementById("myButton1").style.background = 'white';
+    document.getElementById("myButton1").style.color = 'black';
+    flag=1;}
+    else 
+    {document.body.style.background = '#eee';
+    document.getElementById("title").style.color = "#7c795d";
+    document.getElementById("myButton1").value="Dark";
+    document.getElementById("myButton1").style.background = 'black';
+    document.getElementById("myButton1").style.color = 'white';
+    flag=0;}
 }
