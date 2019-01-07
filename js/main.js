@@ -1,14 +1,13 @@
 let output = document.getElementById("output");
 let out = document.getElementById("out")
-let flag=0
+let flag = 1
 
 const geolocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(rit, fileit);
         document.getElementById("button").value = "Get my geolocation again";
         document.getElementById("button").onclick = "window.location.reload();"; // reloads and executes the geolocation();
-    }
-    else {
+    } else {
         output.innerHTML = "Geolocation is not supported by this browser";
         output.style.display = "inherit";
     }
@@ -52,18 +51,19 @@ const fileit = (error) => {
 }
 
 const changeBodyBg = () => {
-    if(!flag)
-    {document.body.style.background = 'black';
-    document.getElementById("title").style.color = 'white';
-    document.getElementById("myButton1").value="Light";
-    document.getElementById("myButton1").style.background = 'white';
-    document.getElementById("myButton1").style.color = 'black';
-    flag=1;}
-    else 
-    {document.body.style.background = '#eee';
-    document.getElementById("title").style.color = "#7c795d";
-    document.getElementById("myButton1").value="Dark";
-    document.getElementById("myButton1").style.background = 'black';
-    document.getElementById("myButton1").style.color = 'white';
-    flag=0;}
+    const background = flag? 'black' : '#eee';
+    const title = flag?'white': '#7c795d';
+    const btn_value = flag? 'Light': 'Dark';
+    const btn_back = flag? 'white' : 'black';
+    const btn_clr = flag? 'black': 'white';
+
+    
+    document.body.style.background = background;
+    document.getElementById("title").style.color = title;
+    
+    const btn = document.getElementById("myButton1");
+    btn.value = btn_value;
+    btn.style.background = btn_back;
+    btn.style.color = btn_clr;
+    flag=flag? 0:1;
 }
