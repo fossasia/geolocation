@@ -1,12 +1,13 @@
 let output = document.getElementById("output");
 let out = document.getElementById("out")
+let flag = 1
+
 const geolocation = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(rit, fileit);
         document.getElementById("button").value = "Get my geolocation again";
         document.getElementById("button").onclick = "window.location.reload();"; // reloads and executes the geolocation();
-    }
-    else {
+    } else {
         output.innerHTML = "Geolocation is not supported by this browser";
         output.style.display = "inherit";
     }
@@ -47,4 +48,22 @@ const fileit = (error) => {
             output.innerHTML = "Unknown Error please try again";
             break;
     }
+}
+
+const changeBodyBg = () => {
+    const background = flag? 'black' : '#eee';
+    const title = flag?'white': '#7c795d';
+    const btn_value = flag? 'Light': 'Dark';
+    const btn_back = flag? 'white' : 'black';
+    const btn_clr = flag? 'black': 'white';
+
+    
+    document.body.style.background = background;
+    document.getElementById("title").style.color = title;
+    
+    const btn = document.getElementById("myButton1");
+    btn.value = btn_value;
+    btn.style.background = btn_back;
+    btn.style.color = btn_clr;
+    flag=flag? 0:1;
 }
