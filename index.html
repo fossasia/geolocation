@@ -1,32 +1,115 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/stylesheet.css" rel="stylesheet">
-    <link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
-    <title>Geolocator for FOSSASIA</title>
-</head>
-<body>
-    <h2>Geo locator to faciliate easy integration of location data</h2>
-    <div id="main-div" class="card">
-        <label class="label">Click the below button to get Geolocation</label><br><br><br>
-        <input id="button" type="button" value="Get my geolocation" onclick="geolocation()">
-        <br><br>
-        <!-- The below div will hold the data -->
-        <label id="output" class="label"></label>
-        <label id="preview" class="label"></label>
-        <div id="osm-map"></div>
-        <div id="out">
-            <label>Copy and paste the lat and lng values to the:</label><br>
-            <!-- Start ignoring LineLengthBear, HTMLLintBear -->
-            <a href="https://github.com/fossasia/gci18.fossasia.org/edit/master/_data/mentors.yml">Mentors file [If you are a mentor]</a><br>
-            <!-- stop ignoring -->
-        </div>
-    </div>
-    <div class="card" id="info">Created with ♡ for FOSSASIA</div>
-    <script src="js/main.js"></script>
-    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
-</body>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+			crossorigin="anonymous"
+		/>
+		<link href="css/style.css" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+		<title>FOSSASIA Geolocator</title>
+	</head>
+	<body>
+		<!-- Title -->
+		<h1 class="title">FOSSASIA Geolocator</h1>
+
+		<!-- Theme Switch -->
+		<label id="switch" class="switch">
+			<input type="checkbox" onchange="toggleTheme()" id="slider" />
+			<span class="slider round"></span>
+		</label>
+
+		<!-- Main Section -->
+		<section class="box">
+			<span class="text">This geolocator is made to facilitate easy integration of location data in other projects.</span>
+			<br />
+			<button type="button" class="btn btn-outline-primary" id="action" onclick="geolocation()">Get Location</button>
+			<br />
+			<div class="alert alert-danger" role="alert" id="output" style="display: none"></div>
+			<section id="data" style="display: none">
+				<h1>Your Geolocation</h1>
+				<br />
+				<div class="input-group mb-2 mx-auto">
+					<span class="input-group-text" id="basic-addon1">LAT</span>
+					<input type="text" class="form-control" value="" id="lat" readonly />
+					<button class="btn btn-outline-light" type="button" id="button-addon1" data-clipboard-target="#lat">
+						<img src="images/copy.svg" width="18px" />
+					</button>
+				</div>
+				<div class="input-group mb-2 mx-auto">
+					<span class="input-group-text" id="basic-addon1">LNG</span>
+					<input type="text" class="form-control" value="" id="lng" readonly />
+					<button class="btn btn-outline-light" type="button" id="button-addon1" data-clipboard-target="#lng">
+						<img src="images/copy.svg" width="18px" />
+					</button>
+				</div>
+				<label id="preview" class="label"></label>
+				<div id="osm-map"></div>
+				<br />
+				<div id="out">
+					<label>Copy and paste the LAT and LNG values to the:</label>
+					<!-- Start ignoring LineLengthBear, HTMLLintBear -->
+					<a href="https://github.com/fossasia/gci18.fossasia.org/edit/master/_data/mentors.yml">Mentors file</a> [If you are a mentor]
+					<br />
+					<!-- stop ignoring -->
+				</div>
+			</section>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<label>Created with ♡ for <a href="https://fossasia.org/">FOSSASIA</a></label>
+		</footer>
+
+		<!-- Javascript -->
+		<script src="js/main.js"></script>
+		<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+		<script>
+			// Clipboard Object
+			let clipboard = new ClipboardJS(".btn");
+
+			// Theme Changer
+			function setTheme(themeName) {
+				localStorage.setItem("theme", themeName);
+				if (themeName === "theme-dark") {
+					document.body.classList.add("dark");
+				} else {
+					document.body.classList.remove("dark");
+				}
+			}
+
+			// function to toggle between light and dark theme
+			function toggleTheme() {
+				if (localStorage.getItem("theme") === "theme-dark") {
+					setTheme("theme-light");
+				} else {
+					setTheme("theme-dark");
+				}
+			}
+
+			// Immediately invoked function to set the theme on initial load
+			(function () {
+				if (localStorage.getItem("theme") === "theme-dark") {
+					setTheme("theme-dark");
+					document.getElementById("slider").checked = true;
+				} else {
+					setTheme("theme-light");
+					document.getElementById("slider").checked = false;
+				}
+			})();
+		</script>
+	</body>
 </html>
