@@ -20,26 +20,33 @@
 		<!-- Title -->
 		<h1 class="title">FOSSASIA Geolocator</h1>
 
+		<!-- Theme Switch -->
+		<label id="switch" class="switch">
+			<input type="checkbox" onchange="toggleTheme()" id="slider" />
+			<span class="slider round"></span>
+		</label>
+
 		<!-- Main Section -->
 		<section class="box">
 			<span class="text">This geolocator is made to facilitate easy integration of location data in other projects.</span>
 			<br />
 			<button type="button" class="btn btn-outline-primary" id="action" onclick="geolocation()">Get Location</button>
 			<br />
+			<div class="alert alert-danger" role="alert" id="output" style="display: none"></div>
 			<section id="data" style="display: none">
 				<h1>Your Geolocation</h1>
 				<br />
 				<div class="input-group mb-2 mx-auto">
 					<span class="input-group-text" id="basic-addon1">LAT</span>
 					<input type="text" class="form-control" value="" id="lat" readonly />
-					<button class="btn btn-outline-secondary copyLAT" type="button" id="button-addon1" data-clipboard-target="#lat">
+					<button class="btn btn-outline-light" type="button" id="button-addon1" data-clipboard-target="#lat">
 						<img src="images/copy.svg" width="18px" />
 					</button>
 				</div>
 				<div class="input-group mb-2 mx-auto">
 					<span class="input-group-text" id="basic-addon1">LNG</span>
 					<input type="text" class="form-control" value="" id="lng" readonly />
-					<button class="btn btn-outline-secondary copyLNG" type="button" id="button-addon1" data-clipboard-target="#lng">
+					<button class="btn btn-outline-light" type="button" id="button-addon1" data-clipboard-target="#lng">
 						<img src="images/copy.svg" width="18px" />
 					</button>
 				</div>
@@ -57,7 +64,9 @@
 		</section>
 
 		<!-- Footer -->
-		<footer>Created with ♡ for <a href="https://fossasia.org/">FOSSASIA</a></footer>
+		<footer>
+			<label>Created with ♡ for <a href="https://fossasia.org/">FOSSASIA</a></label>
+		</footer>
 
 		<!-- Javascript -->
 		<script src="js/main.js"></script>
@@ -69,7 +78,38 @@
 		></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
 		<script>
+			// Clipboard Object
 			let clipboard = new ClipboardJS(".btn");
+
+			// Theme Changer
+			function setTheme(themeName) {
+				localStorage.setItem("theme", themeName);
+				if (themeName === "theme-dark") {
+					document.body.classList.add("dark");
+				} else {
+					document.body.classList.remove("dark");
+				}
+			}
+
+			// function to toggle between light and dark theme
+			function toggleTheme() {
+				if (localStorage.getItem("theme") === "theme-dark") {
+					setTheme("theme-light");
+				} else {
+					setTheme("theme-dark");
+				}
+			}
+
+			// Immediately invoked function to set the theme on initial load
+			(function () {
+				if (localStorage.getItem("theme") === "theme-dark") {
+					setTheme("theme-dark");
+					document.getElementById("slider").checked = true;
+				} else {
+					setTheme("theme-light");
+					document.getElementById("slider").checked = false;
+				}
+			})();
 		</script>
 	</body>
 </html>

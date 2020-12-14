@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	transition-duration: 500ms;
 }
 
 body {
@@ -48,6 +49,14 @@ a:active {
 	width: 40%;
 }
 
+.btn-outline-light {
+	border-color: #d5d8dc;
+}
+
+.btn-outline-light:hover {
+	border-color: gray;
+}
+
 footer {
 	background-color: #fff;
 	min-width: 50%;
@@ -55,6 +64,110 @@ footer {
 	border-radius: 10px;
 	text-align: center;
 	font-size: 20px;
+}
+
+/* Theme Switch CSS */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+	margin-top: 30px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: grab;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #eaeaea;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 40px;
+	width: 40px;
+	left: 0px;
+	bottom: 4px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	box-shadow: 0 0px 15px #2020203d;
+	background: white url("https://i.ibb.co/7JfqXxB/sunny.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+input:checked + .slider {
+	background-color: #2196f3;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(24px);
+	-ms-transform: translateX(24px);
+	transform: translateX(24px);
+	background: white url("https://i.ibb.co/FxzBYR9/night.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+/* Dark Theme CSS */
+body.dark {
+	background-color: #34495e !important;
+}
+
+body.dark .title {
+	color: #eaecee;
+}
+
+body.dark .box {
+	background-color: #17202a;
+	color: #eaecee;
+}
+
+body.dark footer {
+	background-color: #17202a;
+	color: #eaecee;
+}
+
+body.dark input,
+body.dark .input-group-text {
+	background-color: #17202a !important;
+	color: #eaecee !important;
+}
+
+body.dark img {
+	filter: invert(100%);
+}
+
+body.dark .btn-outline-light:hover img {
+	filter: saturate(29%) hue-rotate(210deg) brightness(13%);
 }
 
 /* Media Queries */
