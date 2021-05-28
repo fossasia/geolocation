@@ -8,7 +8,8 @@ def geolocator(adr):
   if adr[0].isdigit():
     ipadr = adr
   else:
-    ipadr=socket.gethostbyname(hostname)
+    ipadr=socket.gethostbyname(adr)
+    
   response=DbIpCity.get(ipadr, api_key='free')
   ip_address = response.ip_address
   region = response.region
