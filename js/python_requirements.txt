@@ -1,0 +1,7 @@
+cryptography==3.1.1
+geocoder==1.38.1
+geoip2==4.1.0
+ip2geotools==0.1.5
+IP2Location==8.4.1
+optparse-pretty
+sockets
