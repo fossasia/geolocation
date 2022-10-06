@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/stylesheet.css" rel="stylesheet">
-    <link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link href="css/stylesheet.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
     <title>Geolocator for FOSSASIA</title>
-</head>
-<body>
-    <h2>Geo locator to faciliate easy integration of location data</h2>
-    <div id="main-div" class="card">
-        <label class="label">Click the below button to get Geolocation</label><br><br><br>
-        <input id="button" type="button" value="Get my geolocation" onclick="geolocation()">
-        <br><br>
+  </head>
+  <body>
+    <div class="container display-content-center align-items-center">
+      <h2 class="text-capitalize mt-5">
+        <strong>Geo locator to faciliate easy integration of location data</strong>
+      </h2>
+      <div id="main-div" class="card">
+        <button class="label btn btn-dark" onclick="geolocation()">Click the below button to get Geolocation</button
+        ><br /><br />
+        
         <!-- The below div will hold the data -->
         <label id="output" class="label"></label>
         <label id="preview" class="label"></label>
         <div id="osm-map"></div>
-        <div id="out">
-            <label>Copy and paste the lat and lng values to the:</label><br>
-            <!-- Start ignoring LineLengthBear, HTMLLintBear -->
-            <a href="https://github.com/fossasia/gci18.fossasia.org/edit/master/_data/mentors.yml">Mentors file [If you are a mentor]</a><br>
-            <!-- stop ignoring -->
+        <div id="out justify-content-center align-items-center">
+          <label>Copy and paste the lat and lng values to the:</label><br />
+          <!-- Start ignoring LineLengthBear, HTMLLintBear -->
+          <a
+            href="https://github.com/fossasia/gci18.fossasia.org/edit/master/_data/mentors.yml"
+            >Mentors file [If you are a mentor]</a
+          ><br />
+          <!-- stop ignoring -->
         </div>
+      </div>
+      <div class="card bg-dark text-white" id="info">Created with ♡ for FOSSASIA</div>
     </div>
-    <div class="card" id="info">Created with ♡ for FOSSASIA</div>
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
-</body>
+  </body>
 </html>
